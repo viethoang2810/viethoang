@@ -14,7 +14,7 @@ import java.util.Date;
 public class foodDetails {
     private String foodID ;
     private String foodName;
-    private double weight ;
+    private String weight ;
     private String foodType;
     private String place ;
     private String expiredDate ;
@@ -23,7 +23,7 @@ public class foodDetails {
         
     }
 
-    public foodDetails(String foodID, String foodName, double weight, String foodType, String place, String expiredDate) {
+    public foodDetails(String foodID, String foodName, String weight, String foodType, String place, String expiredDate) {
         this.foodID = foodID;
         this.foodName = foodName;
         this.weight = weight;
@@ -45,11 +45,11 @@ public class foodDetails {
         this.foodName = foodName;
     }
 
-    public double getWeight() {
+    public String getWeight() {
         return weight;
     }
 
-    public void setWeight(double weight) {
+    public void setWeight(String weight) {
         this.weight = weight;
     }
 

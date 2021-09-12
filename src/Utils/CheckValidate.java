@@ -39,4 +39,13 @@ public class CheckValidate {
         }while(!(input.matches(pattern1)||input.matches(pattern2)));
         return input ;
     }
+    public static String inputWeight(String str){
+        String weight ; 
+        String pattern = "[0-15]";
+        do {            
+            System.out.println(str);
+            weight = sc.nextLine() ;
+        } while (!weight.matches(pattern));
+        return weight ;
+    }
 }

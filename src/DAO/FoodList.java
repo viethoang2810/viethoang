@@ -7,7 +7,6 @@ package DAO;
 
 import DTO.foodDetails;
 import java.text.DateFormat;
-import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Collections;
@@ -66,7 +65,7 @@ public class FoodList extends ArrayList<foodDetails> implements IDAO {
     public void addFood() {
         String foodID;
         String foodName;
-        double weight;
+        String weight;
         String foodType;
         String place;
         Date expiredDate;
@@ -84,8 +83,7 @@ public class FoodList extends ArrayList<foodDetails> implements IDAO {
                     }
                 } while (checkDuplicated == true);
                 foodName = Utils.CheckValidate.inputString("Enter name of food: ");
-                System.out.print("Enter food's weight (kg): ");
-                weight = Double.parseDouble(sc.nextLine());
+                weight = Utils.CheckValidate.inputWeight("Enter weight of food: ") ;
                 foodType =Utils.CheckValidate.inputString("Enter type of food: ");
                 place = Utils.CheckValidate.inputString("Enter place of food in refrigerator: ") ;
                 System.out.print("Enter expired date (day): ");
