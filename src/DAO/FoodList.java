@@ -65,13 +65,14 @@ public class FoodList extends ArrayList<foodDetails> implements IDAO {
     public void addFood() {
         String foodID;
         String foodName;
-        String weight;
+        double weight = 0;
         String foodType;
         String place;
         Date expiredDate;
         String choice;
         boolean checkDuplicated = false;
         boolean checkAnswer = false;
+        boolean check = false ;
         SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy") ;
         do {
             try {
@@ -83,13 +84,24 @@ public class FoodList extends ArrayList<foodDetails> implements IDAO {
                     }
                 } while (checkDuplicated == true);
                 foodName = Utils.CheckValidate.inputString("Enter name of food: ");
-                weight = Utils.CheckValidate.inputWeight("Enter weight of food: ") ;
+                do{
+                    try{
+                    System.out.print("Enter weight of food: ");
+                    weight = Double.parseDouble(sc.nextLine()) ;
+                    if(weight < 0 || weight > 10){
+                        System.out.println("The refrigerator cannot contain the food weight greater than 10kg");
+                        check = false ;
+                    }
+                    }catch(Exception e){
+                        System.out.println(e);
+                        check = true ;
+                    }
+                }while(check == true) ;
                 foodType =Utils.CheckValidate.inputString("Enter type of food: ");
                 place = Utils.CheckValidate.inputString("Enter place of food in refrigerator: ") ;
                 System.out.print("Enter expired date (day): ");
                 expiredDate =  formatter.parse(sc.nextLine());
-                String date =formatter.format(expiredDate) ;
-                foodDetails list = new foodDetails(foodID, foodName, weight, foodType, place, date);
+                foodDetails list = new foodDetails(foodID, foodName, weight, foodType, place, expiredDate);
                 this.add(list);
                 System.err.println("Adding successfully !");
                 System.out.print("Do you want to add more food? Y/N: ");

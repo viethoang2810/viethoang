@@ -17,7 +17,7 @@ public class CheckValidate {
         String input = "" ;
         do {                
             System.out.print(str);
-            input = sc.nextLine() ;
+            input = sc.nextLine().toUpperCase() ;
         } while (!input.matches(pattern));
         return input ;
     }
@@ -25,7 +25,7 @@ public class CheckValidate {
         String input = "" ;
         do {            
             System.out.print(str);
-            input = sc.nextLine();
+            input = sc.nextLine().toUpperCase();
         } while (input.length() == 0);
         return input ;
     }
@@ -35,7 +35,7 @@ public class CheckValidate {
         String input = " " ;
         do{
             System.out.println(str);
-            input = sc.nextLine() ;
+            input = sc.nextLine().toUpperCase() ;
         }while(!(input.matches(pattern1)||input.matches(pattern2)));
         return input ;
     }

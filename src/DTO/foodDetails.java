@@ -14,16 +14,16 @@ import java.util.Date;
 public class foodDetails {
     private String foodID ;
     private String foodName;
-    private String weight ;
+    private double weight ;
     private String foodType;
     private String place ;
-    private String expiredDate ;
+    private Date expiredDate ;
     
     public foodDetails(){
         
     }
 
-    public foodDetails(String foodID, String foodName, String weight, String foodType, String place, String expiredDate) {
+    public foodDetails(String foodID, String foodName, double weight, String foodType, String place, Date expiredDate) {
         this.foodID = foodID;
         this.foodName = foodName;
         this.weight = weight;
@@ -45,11 +45,11 @@ public class foodDetails {
         this.foodName = foodName;
     }
 
-    public String getWeight() {
+    public double getWeight() {
         return weight;
     }
 
-    public void setWeight(String weight) {
+    public void setWeight(double weight) {
         this.weight = weight;
     }
 
@@ -69,11 +69,11 @@ public class foodDetails {
         this.place = place;
     }
 
-    public String getExpiredDate() {
+    public Date getExpiredDate() {
         return expiredDate;
     }
 
-    public void setExpiredDate(String expiredDate) {
+    public void setExpiredDate(Date expiredDate) {
         this.expiredDate = expiredDate;
     }
 
