@@ -193,4 +193,49 @@ public class FoodList extends ArrayList<foodDetails> implements IDAO {
             checkAnswer = Utils.YesNoQuestions.getAnswer(answer);
         } while (checkAnswer == true);
     }
+     @Override
+    public void updateFood(){
+        String newName ,newType,newPlace ;
+        double newWeight = 0 ;
+        boolean check = false ;
+        String foodID = Utils.CheckValidate.inputID("Enter food ID: ", "[0-9]{3}") ;
+        foodDetails x = this.searchById(foodID);
+        if(x == null){
+            System.out.println("The food doesn't exist");
+            return;
+        }
+        System.out.print("Enter new name of food: ");
+        newName = sc.nextLine() ;
+        if(newName == ""){
+            newName =x.getFoodName() ;
+        }
+        x.setFoodName(newName);
+        do {
+            try {
+                System.out.print("Enter weight of food: ");
+                newWeight = Double.parseDouble(sc.nextLine());
+                if (newWeight < 0 || newWeight > 10) {
+                    System.out.println("The refrigerator cannot contain the food weight greater than 10kg");
+                    check = false;
+                }
+            } catch (Exception e) {
+                System.out.println(e);
+                check = true;
+            }
+        } while (check == true);
+        x.setWeight(newWeight);
+        System.out.print("Enter new type of food: ");
+        newType = sc.nextLine() ;
+        if(newType == ""){
+            newType =x.getFoodType();
+        }
+        x.setFoodType(newType);
+        System.out.print("Enter new place in refrigerator: ");
+        newPlace = sc.nextLine() ;
+        if(newPlace == ""){
+            newPlace = x.getPlace();
+        }
+        x.setPlace(newPlace);
+        System.out.println("The food " + foodID + " is updated successfully");
+    }
 }

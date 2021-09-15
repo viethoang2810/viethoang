@@ -15,4 +15,5 @@ public interface IDAO {
     public void removeFood() ;
     public void printList() ;
     public void searchFood() ;
+    public void updateFood() ;
 }
